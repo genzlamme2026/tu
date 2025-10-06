@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Văn Yên & Hồng Bích</title>
+    <!-- Tải Tailwind CSS và Font Awesome cho icon -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Tùy chỉnh font chữ cho phong cách trang trọng */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap');
+        
+        body {
+            /* Tông màu nền kem nhạt */
+            font-family: 'Playfair Display', serif;
+            background-color: #F8F4E3; /* Màu kem/be nhạt */
+            min-height: 100vh;
+        }
+
+        /* Phong cách cho tên cô dâu chú rể */
+        .couple-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem; /* Kích thước lớn trên mobile */
+            line-height: 1.1;
+            color: #587F76; /* Màu xanh đậm hơn cho tên (Sage Green) */
+        }
+
+        @media (min-width: 768px) {
+            .couple-name {
+                font-size: 4.5rem; /* Kích thước lớn trên desktop */
+            }
+        }
+        
+        .invitation-card {
+            border: 1px solid #E0E4D8; /* Viền màu xanh kem nhạt */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        /* Tông màu xanh sage/mint nhạt cho các phần tử */
+        .color-primary {
+            color: #587F76; /* Xanh sage đậm */
+        }
+        .color-secondary {
+            color: #98A99B; /* Xanh sage nhạt */
+        }
+        .bg-primary {
+            background-color: #F0FFF4; /* Màu trắng xanh rất nhạt (giống giấy) */
+        }
+        
+        /* Mô phỏng dải hoa sen ở cuối thiệp bằng gradient */
+        .lotus-gradient-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, #E0E4D8, #F0FFF4); /* Gradient từ xanh nhạt lên trắng */
+            opacity: 0.7;
+            z-index: 10;
+        }
+
+        /* Đảm bảo liên kết bản đồ là thẻ a chuẩn và luôn nằm trên cùng */
+        .map-link-icon-text {
+            cursor: pointer;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none; /* Xóa gạch chân mặc định của a */
+            position: relative; /* Thêm position relative */
+            z-index: 20; /* Tăng z-index để link luôn nằm trên các hiệu ứng trang trí */
+        }
+        .map-link-icon-text:hover {
+            color: #3D645C; /* Đổi màu khi hover */
+            text-decoration: underline; /* Thêm gạch chân khi hover */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 flex flex-col items-center">
+
+    <!-- Card chính của thiệp -->
+    <div class="invitation-card max-w-4xl w-full p-6 sm:p-12 lg:p-16 text-center text-stone-800 rounded-xl mb-12">
+        
+        <!-- Phần 1: Lời ngỏ và Tên Cô Dâu Chú Rể -->
+        <div class="mb-10 border-b border-gray-200 pb-8 relative z-20">
+            <p class="text-xl sm:text-2xl font-light italic mb-2 color-secondary">TRÂN TRỌNG BÁO TIN LỄ THÀNH HÔN CỦA CON CHÚNG TÔI</p>
+            <h1 class="text-4xl sm:text-5xl font-bold uppercase mb-6 tracking-wider color-primary">LỄ THÀNH HÔN</h1>
+            
+            <div class="couple-names flex flex-col items-center">
+                <!-- Tên Chú Rể -->
+                <span class="couple-name font-bold">Nguyễn Văn Yên</span>
+                <p class="text-lg font-medium color-secondary mb-1">Út Nam</p>
+                <span class="text-3xl sm:text-4xl font-light my-3 color-secondary">&</span>
+                <!-- Tên Cô Dâu -->
+                <span class="couple-name font-bold">Trần Hồng Bích</span>
+                <p class="text-lg font-medium color-secondary">Trưởng Nữ</p>
+            </div>
+        </div>
+        
+        <!-- Phần 2: Thông tin Gia Đình -->
+        <div class="mb-10 text-left grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative z-20">
+            
+            <!-- Gia Đình Nhà Trai -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4 color-primary border-b pb-2 border-gray-100">GIA ĐÌNH NHÀ TRAI</h2>
+                <div class="space-y-2 text-base">
+                    <p><span class="font-bold">Ông:</span> Nguyễn Văn Hướng</p>
+                    <p><span class="font-bold">Bà:</span> Nguyễn Thị Hồng</p>
+                    <p class="mt-2 text-sm">
+                        <span class="font-bold">Trú tại:</span> Tổ 8B, Thôn Trung Sơn, xã Thu Bồn, TP Đà Nẵng (Duy Phú,Duy Xuyên,Quảng Nam)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gia Đình Nhà Gái -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4 color-primary border-b pb-2 border-gray-100">GIA ĐÌNH NHÀ GÁI</h2>
+                <div class="space-y-2 text-base">
+                    <p><span class="font-bold">Ông:</span> Trần Quang Chánh</p>
+                    <p><span class="font-bold">Bà:</span> Trần Thị Ngân</p>
+                    <p class="mt-2 text-sm">
+                        <span class="font-bold">Trú tại:</span> 198/9 Huỳnh Việt Thanh, Phường Long An, tỉnh Tây Ninh (Phường 2,Tân An, Long An)
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Phần 3: Thời Gian và Địa Điểm Chiêu Đãi (Giữ nguyên cấu trúc lịch) -->
+        <div class="mb-10 p-6 bg-primary rounded-lg border border-gray-200 relative z-20">
+	       <h2 class="text-3xl font-bold mb-6 text-blue-800 uppercase tracking-wider">
+  		TRÂN TRỌNG KÍNH MỜI
+		</h2>
+		<h2 class="text-5xl font-bold mb-6 text-pink-600 uppercase tracking-wider">
+ 		 GIA ĐÌNH TÚ
+		</h2>
+
+            <h2 class="text-2xl font-bold mb-6 color-primary uppercase tracking-wider">ĐẾN DỰ BUỔI TIỆC CÙNG GIA ĐÌNH CHÚNG TÔI TẠI</h2>
+            <h2 class="text-3xl font-bold mb-6 text-blue-500 uppercase tracking-wider">NHÀ VĂN HÓA THÔN</h2
+            
+            <!-- Thông tin chính -->
+            <div class="flex flex-col sm:flex-row justify-around items-center">
+                
+                <div class="w-full sm:w-auto mb-6 sm:mb-0">
+                    <p class="text-6xl font-extrabold color-primary leading-none">30</p>
+                    <p class="text-2xl font-semibold text-stone-700 mt-1">Tháng 11</p>
+                    <p class="text-lg color-secondary">Năm 2025</p>
+                </div>
+
+                <div class="h-10 w-px bg-gray-300 hidden sm:block"></div> <!-- Dấu chia -->
+                
+                <div class="w-full sm:w-auto text-center">
+                    <p class="text-2xl font-bold color-primary">CHỦ NHẬT | Nhằm ngày 11 tháng 10 năm Ất Tỵ</p>
+                    <p class="text-4xl font-extrabold text-red-500 my-2">Vào lúc 10 Giờ 30 </p>
+                    <p class="text-xl font-medium mt-4 text-stone-700">
+                        <span class="color-primary font-bold">Địa điểm:</span> Tại Nhà Văn Hóa Thôn
+                    </p>
+                    <p class="text-base italic color-secondary">
+                        Tổ 8B,Thôn Trung Sơn, xã Thu Bồn, TP Đà Nẵng (Duy Phú, Duy Xuyên, Quảng Nam)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần 4: Lời Kính Mời và Bản Đồ (Đã tăng Z-index) -->
+        <div class="text-center relative z-20">
+            <p class="text-xl font-semibold mb-6 color-primary">TRÂN TRỌNG KÍNH MỜI</p>
+            
+            <p class="text-lg italic mb-6 color-secondary">
+                Đến dự buổi tiệc chung vui cùng gia đình chúng tôi.
+                Sự hiện diện của Quý Khách là niềm vinh hạnh cho gia đình chúng tôi.
+            </p>
+            
+            <p class="text-3xl font-bold uppercase tracking-widest color-primary mb-8">KÍNH MỜI!</p>
+
+            <!-- Bản đồ - ĐÃ DÙNG URL CHÍNH XÁC VÀ TĂNG Z-INDEX -->
+            <a id="map-link" 
+               href="https://www.google.com/maps/dir/10.4006524,107.1048685/Q3PW%2BRJ7+Nh%C3%A0+v%C4%83n+ho%C3%A1+Trung+S%C6%A1n,+Trung+S%C6%A1n,+Duy+Xuy%C3%AAn,+Qu%E1%BA%A3ng+Nam,+Vietnam/@15.7866712,108.0948994,857m/data=!3m1!1e3!4m9!4m8!1m1!4e1!1m5!1m1!1s0x314201be809bc127:0xe26a8e1d63133a7b!2m2!1d108.0965401!2d15.7870346?entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="map-link-icon-text inline-flex items-center justify-center space-x-2 px-6 py-3 mb-2 text-lg font-semibold color-primary">
+                <i class="fas fa-map-marker-alt text-2xl"></i> 
+                <span>Xem Địa Chỉ</span>
+            </a>
+       
+
+            <!-- Hiệu ứng hoa sen giả lập -->
+            <div class="lotus-gradient-effect"></div>
+        </div>
+
+    </div> <!-- Kết thúc Card chính của thiệp -->
+
+    <!-- PHẦN BỔ SUNG: ALBUM HÌNH CƯỚI (1 CỘT, GIỮ NGUYÊN TỶ LỆ) -->
+    <section class="w-full max-w-4xl mt-12 mb-16 text-center">
+        <h2 class="text-4xl font-bold uppercase mb-10 color-primary tracking-wider border-b pb-4 border-gray-300">
+            ALBUM HÌNH CƯỚI
+        </h2>
+        
+        <!-- Khung chứa lưới ảnh: CHỈ 1 CỘT TRÊN MỌI THIẾT BỊ -->
+        <div class="grid grid-cols-1 gap-6 px-4">
+            
+            <!-- 15 ảnh, đã thay thế bằng tên file cục bộ -->
+            
+            <!-- Ảnh 1 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh1.png" 
+                     alt="anh1.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+1';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain"> <!-- Xóa aspect-video và object-cover -->
+            </div>
+
+            <!-- Ảnh 2 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh2.png" 
+                     alt="anh2.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+2';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+            
+            <!-- Ảnh 3 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh3.png" 
+                     alt="anh3.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+3';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 4 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh4.png" 
+                     alt="anh4.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+4';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 5 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh5.png" 
+                     alt="anh5.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+5';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 6 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh6.png" 
+                     alt="anh6.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+6';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 7 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh7.png" 
+                     alt="anh7.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+7';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 8 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh8.png" 
+                     alt="anh8.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+8';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 9 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh9.png" 
+                     alt="anh9.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+9';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 10 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh10.png" 
+                     alt="anh10.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+10';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+            
+            <!-- Ảnh 11 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh11.png" 
+                     alt="anh11.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+11';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+            
+            <!-- Ảnh 12 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh12.png" 
+                     alt="anh12.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+12';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+            <!-- Ảnh 13 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh13.png" 
+                     alt="anh13.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+13';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+            
+            <!-- Ảnh 14 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh14.png" 
+                     alt="anh14.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+14';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+            
+            <!-- Ảnh 15 -->
+            <div class="overflow-hidden rounded-xl shadow-lg group">
+                <img src="anh15.png" 
+                     alt="anh15.png" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/E0E4D8/587F76?text=Ảnh+15';"
+                     class="w-full h-auto transform transition duration-500 group-hover:scale-105 object-contain">
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
